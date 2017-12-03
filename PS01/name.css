@@ -1,0 +1,36 @@
+body{
+    background-color: lightgray;
+}
+.tital{
+    width: 750px;
+    height: 200px;
+    margin-left: -200px;
+    float: left;
+}
+p{
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+}
+.svgBox{
+    height: 700px;
+    width: 650px;
+    float: left;
+}
+.svgBox2{
+    height: 700px;
+    width: 500px;
+    float: left;
+    margin-left: -645px;
+}
+.svgBox3{
+    width: 55%;
+    height: 300px;
+    float: left;
+    margin-left: -150px;
+    margin-top: -150px;
+}
+input{
+    margin-left: 280px;
+    float: left;
+    margin-top: -47px;
+}
