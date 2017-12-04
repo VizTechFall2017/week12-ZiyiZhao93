@@ -7,7 +7,8 @@ var height2 = document.getElementById('svg2').clientHeight;
 var width3 = document.getElementById('svg3').clientWidth;
 var height3 = document.getElementById('svg3').clientHeight;
 
-console.log(width,width2,width3);
+var width4 = document.getElementById('svg4').clientWidth;
+var height4 = document.getElementById('svg4').clientHeight;
 
 var marginLeft = 0;
 var marginTop = 0;
@@ -16,6 +17,11 @@ var marginLeft3 = 100;
 var marginTop3 = 100;
 
 var nestedData = [];
+
+var daysData = [];
+
+var womenData;
+var menData;
 
 var svg = d3.select('#svg1')
     .append('g')
@@ -29,6 +35,10 @@ var svg3 = d3.select('#svg3')
     .append('g')
     .attr('transform', 'translate(' + marginLeft3 + ',' + marginTop3 + ')');
 
+var svg4 = d3.select('#svg4')
+    .append('g')
+    .attr('transform', 'translate(' + marginLeft + ',' + marginTop + ')');
+
 
 var albersProjection = d3.geoAlbers()
     .scale(150000)//tell it how big the map should be
@@ -40,12 +50,12 @@ var albersProjection = d3.geoAlbers()
 path = d3.geoPath()
     .projection(albersProjection);        //tell it to use the projection that we just made to convert lat/long to pixels
 
-var cityLookup = d3.map();
 
-var colorScale = d3.scaleLinear().range(['white','white']);
+var scaleX1 = d3.scaleBand().rangeRound([0, width3-2*marginLeft3]).padding(0.1);
+var scaleY1 = d3.scaleLinear().range([height3-2*marginTop3, 0]);
 
-var scaleX = d3.scaleBand().rangeRound([0, width3-2*marginLeft3]).padding(0.1);
-var scaleY = d3.scaleLinear().range([height3-2*marginTop3, 0]);
+var scaleX2 = d3.scaleBand().rangeRound([0, width4-2*marginLeft]).padding(0.1);
+var scaleY2 = d3.scaleLinear().range([height4-2*marginTop, 0]);
 
 
 queue()
@@ -55,24 +65,15 @@ queue()
     .await(function(err, mapData,lineData, populationData){
 
 
-        populationData.forEach(function(d){
-            cityLookup.set(d.name, d.population);
-        });
-
-
-        colorScale.domain([0, d3.max(populationData.map(function(d){return +d.population}))]);
-
         svg.selectAll("path")               //make empty selection
             .data(mapData.features)          //bind to the features array in the map data
             .enter()
             .append("path")                 //add the paths to the DOM
             .attr("d", path)                //actually draw them
             .attr("class", "feature")
-            .attr('fill',function(d){
-                return colorScale(cityLookup.get(d.properties.NAME));
-            })
+            .attr('fill','white')
             .attr('stroke','black')
-            .attr('stroke-width',.2)
+            .attr('stroke-width',.1);
 
 
         svg2.background = 'none';
@@ -259,7 +260,7 @@ queue()
             .attr('fill', 'orange')
             .on('mouseover', function (d) {
                 d3.select(this).attr('r', 8).attr('fill', 'red');
-                
+
             })
             .on('mouseout', function (d) {
                 d3.select(this).attr('r', 5).attr('fill', 'orange');
@@ -303,7 +304,6 @@ queue()
             .key(function(d){return d.gender})
             .entries(populationData);
 
-        console.log(nestedData);
 
         var loadData = nestedData.filter(function(d){return d.key == 'total'})[0].values;
 
@@ -332,8 +332,43 @@ queue()
             .attr('transform','translate(290, 150)')
             .attr('font-size', 15);
 
+        daysData = d3.nest()
+            .key(function (d) { return d.event})
+            .entries(populationData);
+
+        var dayData = daysData.filter(function (d) {return d.key == '1'})[0].values;
+
+        womenData = populationData.filter(function (d){
+            return d.gender == women;
+            });
+
+        menData = populationData.filter(function (d){
+            return d.gender == men;
+        });
+
+        console.log(womenData);
+
+        svg4.selectAll('circles')
+            .data(womenData)
+            .enter()
+            .append('circle')
+            .attr('class','w_dataPoints')
+            .attr('r', 5)
+            .attr('fill', "pink");
+
+        svg4.selectAll('circles')
+            .data(menData)
+            .enter()
+            .append('circle')
+            .attr('class','palevioletred')
+            .attr('r', 5)
+            .attr('fill', "mediumturquoise");
+
+
+
 
         drawPoints(loadData,'total');
+        drawPoints(dayData);
 
     });
 
@@ -341,8 +376,11 @@ queue()
 function drawPoints(pointData,gender){
 
 
-    scaleX.domain(pointData.map(function(d){return d.things;}));
-    scaleY.domain([0, d3.max(pointData.map(function(d){return +d.number}))]);
+    scaleX1.domain(pointData.map(function(d){return d.things;}));
+    scaleY1.domain([0, d3.max(pointData.map(function(d){return +d.number}))]);
+
+    scaleX2.domain(pointData.map(function(d){return d.week;}));
+    scaleY2.domain([0, d3.max(pointData.map(function(d){return +d.people}))]);
 
 
     d3.selectAll('.xaxis')
@@ -432,4 +470,3 @@ function sliderMoved(value){
 
 
 }
-

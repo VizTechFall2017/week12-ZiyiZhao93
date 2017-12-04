@@ -1,22 +1,120 @@
-things,gender,gendernumber,number,percent,
-read a book,total,0,13,7.8,
-listen to music,total,0,40,23.8,
-play game,total,0,7,4.2,
-social media,total,0,37,22,
-chat,total,0,22,13,
-wondering,total,0,28,16.7,
-take a rest,total,0,21,12.5,
-read a book,male,1,4,5.2,
-listen to music,male,1,21,27.6,
-play game,male,1,4,5.3,
-social media,male,1,19,25,
-chat,male,1,10,13.2,
-wondering,male,1,12,15.8,
-take a rest,male,1,6,7.9,
-read a book,female,2,9,9.8,
-listen to music,female,2,19,20.7,
-play game,female,2,3,3.3,
-social media,female,2,18,19.6,
-chat,female,2,12,13,
-wondering,female,2,16,17.4,
-take a rest,female,2,15,16.2,
+things,gender,gendernumber,number,week,event,people
+read a book,total,0,130,,,
+listen to music,total,0,400,,,
+play game,total,0,70,,,
+social media,total,0,370,,,
+chat,total,0,220,,,
+wondering,total,0,280,,,
+take a rest,total,0,210,,,
+read a book,male,1,40,,,
+listen to music,male,1,210,,,
+play game,male,1,40,,,
+social media,male,1,190,,,
+chat,male,1,100,,,
+wondering,male,1,120,,,
+take a rest,male,1,60,,,
+read a book,female,2,90,,,
+listen to music,female,2,190,,,
+play game,female,2,30,,,
+social media,female,2,180,,,
+chat,female,2,120,,,
+wondering,female,2,160,,,
+take a rest,female,2,150,,,
+,women,,,Mon.,1,10
+,women,,,Tue.,1,11
+,women,,,Wed.,1,13
+,women,,,Thu.,1,15
+,women,,,Fri.,1,9
+,women,,,Sat.,1,14
+,women,,,Sun.,1,18
+,women,,,Mon.,2,20
+,women,,,Tue.,2,23
+,women,,,Wed.,2,18
+,women,,,Thu.,2,27
+,women,,,Fri.,2,34
+,women,,,Sat.,2,29
+,women,,,Sun.,2,39
+,women,,,Mon.,3,2
+,women,,,Tue.,3,5
+,women,,,Wed.,3,3
+,women,,,Thu.,3,4
+,women,,,Fri.,3,7
+,women,,,Sat.,3,8
+,women,,,Sun.,3,1
+,women,,,Mon.,4,20
+,women,,,Tue.,4,23
+,women,,,Wed.,4,31
+,women,,,Thu.,4,28
+,women,,,Fri.,4,19
+,women,,,Sat.,4,27
+,women,,,Sun.,4,32
+,women,,,Mon.,5,10
+,women,,,Tue.,5,14
+,women,,,Wed.,5,20
+,women,,,Thu.,5,18
+,women,,,Fri.,5,9
+,women,,,Sat.,5,23
+,women,,,Sun.,5,26
+,women,,,Mon.,6,18
+,women,,,Tue.,6,23
+,women,,,Wed.,6,27
+,women,,,Thu.,6,20
+,women,,,Fri.,6,28
+,women,,,Sat.,6,21
+,women,,,Sun.,6,23
+,women,,,Mon.,7,16
+,women,,,Tue.,7,20
+,women,,,Wed.,7,23
+,women,,,Thu.,7,18
+,women,,,Fri.,7,27
+,women,,,Sat.,7,19
+,women,,,Sun.,7,27
+,men,,,Mon.,1,3
+,men,,,Tue.,1,5
+,men,,,Wed.,1,4
+,men,,,Thu.,1,8
+,men,,,Fri.,1,3
+,men,,,Sat.,1,7
+,men,,,Sun.,1,10
+,men,,,Mon.,2,23
+,men,,,Tue.,2,30
+,men,,,Wed.,2,28
+,men,,,Thu.,2,37
+,men,,,Fri.,2,31
+,men,,,Sat.,2,26
+,men,,,Sun.,2,35
+,men,,,Mon.,3,3
+,men,,,Tue.,3,1
+,men,,,Wed.,3,5
+,men,,,Thu.,3,7
+,men,,,Fri.,3,6
+,men,,,Sat.,3,2
+,men,,,Sun.,3,6
+,men,,,Mon.,4,25
+,men,,,Tue.,4,30
+,men,,,Wed.,4,28
+,men,,,Thu.,4,23
+,men,,,Fri.,4,26
+,men,,,Sat.,4,17
+,men,,,Sun.,4,41
+,men,,,Mon.,5,9
+,men,,,Tue.,5,10
+,men,,,Wed.,5,16
+,men,,,Thu.,5,13
+,men,,,Fri.,5,18
+,men,,,Sat.,5,15
+,men,,,Sun.,5,19
+,men,,,Mon.,6,13
+,men,,,Tue.,6,20
+,men,,,Wed.,6,18
+,men,,,Thu.,6,24
+,men,,,Fri.,6,15
+,men,,,Sat.,6,17
+,men,,,Sun.,6,13
+,men,,,Mon.,7,6
+,men,,,Tue.,7,8
+,men,,,Wed.,7,7
+,men,,,Thu.,7,10
+,men,,,Fri.,7,5
+,men,,,Sat.,7,9
+,men,,,Sun.,7,15

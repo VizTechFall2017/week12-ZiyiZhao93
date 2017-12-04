@@ -1,0 +1,46 @@
+body{
+    background-color: lightgray;
+}
+.tital{
+    width: 750px;
+    height: 200px;
+    margin-left: -200px;
+    float: left;
+}
+p{
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+    margin-top: -10px;
+}
+.svgBox{
+    height: 700px;
+    width: 650px;
+    float: left;
+    margin-left: -50px;
+}
+.svgBox2{
+    height: 700px;
+    width: 500px;
+    float: left;
+    margin-left: -645px;
+}
+.svgBox3{
+    width: 55%;
+    height: 300px;
+    float: left;
+    margin-left: -150px;
+    margin-top: -200px;
+}
+input{
+    margin-left: 280px;
+    float: left;
+    margin-top: -47px;
+}
+
+.svgBox4{
+    height: 250px;
+    width: 55%;
+    float: left;
+    background-color: hotpink;
+    margin-left: -150px;
+}
