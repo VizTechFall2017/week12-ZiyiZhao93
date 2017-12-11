@@ -18,6 +18,8 @@ var marginTop3 = 100;
 
 var nestedData = [];
 
+var gender = 'total';
+
 var sexData = [];
 
 var clicked = true;
@@ -140,12 +142,12 @@ queue()
             .attr('font-size', 15);
 
 
-        /*
         sexData = d3.nest()
             .key(function (d) {return d.sex})
             .entries(peopleData);
 
-        console.log(sexData);
+        var thingData = sexData.filter(function(d){return d.key == 'read a book'})[0].values;
+        
 
         womenData = peopleData.filter(function(d){
             return d.sex == women;
@@ -181,9 +183,10 @@ queue()
             .attr('r', 5)
             .attr('fill', "mediumturquoise");
 
-*/
+
 
         drawPoints(loadData,'total');
+        drawPoints(thingData,'read a book');
 
     });
 
@@ -194,10 +197,9 @@ function drawPoints(pointData,incomeData){
     scaleX1.domain(pointData.map(function(d){return d.things;}));
     scaleY1.domain([0, d3.max(pointData.map(function(d){return +d.number}))]);
 
-    /*
     scaleX2.domain(incomeData.map(function(d){return d.week;}));
     scaleY2.domain([0, d3.max(incomeData.map(function(d){return +d.people}))]);
-*/
+
 
     d3.selectAll('.xaxis')
         .call(d3.axisBottom(scaleX1));
@@ -251,7 +253,7 @@ function drawPoints(pointData,incomeData){
         .attr('height',function(d){
             return height3-2*marginTop3 - scaleY1(+d.number);
         });
-/*
+
     d3.selectAll('.xaxis1')
         .call(d3.axisBottom(scaleX2));
 
@@ -267,7 +269,7 @@ function drawPoints(pointData,incomeData){
         .data(incomeData)
         .attr('cx',function(d){return scaleX2(d.week);})
         .attr('cy',function(d){return scaleY2(d.men)});
-*/
+
 
 }
 
@@ -298,3 +300,38 @@ function sliderMoved(value){
 
 
 }
+
+
+function buttonClicked(read){
+
+    if(clicked == true){
+        drawPoints(thingData);
+        clicked = false;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
